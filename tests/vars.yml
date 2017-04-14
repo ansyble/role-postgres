@@ -8,5 +8,5 @@ postgres_container:
       DB_NAME: mydb
       DB_USER: me
       DB_PASSWORD: pass
-      REPLICATION_USER: other
+      REPLICATION_USER: replica
       REPLICATION_PASS: pass

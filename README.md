@@ -21,12 +21,12 @@ postgres_databases:
     ports:
       - 5442:5432
     env:
-      POSTGRES_PASSWORD: master-pass
+      POSTGRES_PASSWORD: pgpass
       DB_NAME: mydb
       DB_USER: me
       DB_PASSWORD: "{{ postgres_mydb_pass }}"
-      REPLICATION_USER: scruffy
-      REPLICATION_PASS: "{{ postgres_scruffy_pass }}"
+      REPLICATION_USER: replica
+      REPLICATION_PASS: "{{ postgres_replica_pass }}"
 
   - name: pg.slave
     volumes:
@@ -34,8 +34,8 @@ postgres_databases:
     env:
       POSTGRES_PASSWORD: "{{ postgres_slave_pass }}"
       REPLICATION_MODE: slave
-      REPLICATION_USER: scruffy
-      REPLICATION_PASS: "{{ postgres_scruffy_pass }}"
+      REPLICATION_USER: replica
+      REPLICATION_PASS: "{{ postgres_replica_pass }}"
       REPLICATION_HOST: pg.master
 ```
 
