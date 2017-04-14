@@ -1,2 +1,12 @@
 ---
 postgres_container:
+  - name: pg.master
+    volumes:
+      - pg.master:/var/lib/postgresql/data
+    env:
+      POSTGRES_PASSWORD: pgpass
+      DB_NAME: mydb
+      DB_USER: me
+      DB_PASSWORD: pass
+      REPLICATION_USER: other
+      REPLICATION_PASS: pass
