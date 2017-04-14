@@ -1,7 +1,7 @@
 [ ![Image](https://cloud.githubusercontent.com/assets/5514990/24834935/e0d1db04-1d1c-11e7-8ad0-53fd45ff13c3.png "Ansible") ](https://www.ansible.com/ "Ansible")
 
 [![Build Status](https://travis-ci.org/ansyble/role-postgres.svg?branch=master)](https://travis-ci.org/ansyble/role-postgres)
-[![Ansible Role](https://img.shields.io/ansible/role/xx.svg)](https://galaxy.ansible.com/ansyble/postgres/)
+[![Ansible Role](https://img.shields.io/ansible/role/17044.svg)](https://galaxy.ansible.com/ansyble/postgres/)
 
 [Ansible](http://www.ansible.com) role to deploy Postgres cluster.
 
@@ -30,7 +30,7 @@ postgres_databases:
 
   - name: pg.slave
     volumes:
-      - pg.slave:/var/lib/postgresql/data
+      - pg.slave:/var/lib/postgresql/replica
     env:
       POSTGRES_PASSWORD: "{{ postgres_slave_pass }}"
       REPLICATION_MODE: slave
@@ -42,6 +42,6 @@ postgres_databases:
 ### Defaults
 
 ```yml
-]postgres_image_name: mongkok/postgres:9.6
+postgres_image_name: mongkok/postgres:9.6
 postgres_network_name: postgres
 ```
