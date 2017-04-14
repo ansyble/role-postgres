@@ -1,0 +1,4 @@
+---
+postgres_databases: []
+postgres_image_name: mongkok/postgres:9.6
+postgres_network_name: postgres
