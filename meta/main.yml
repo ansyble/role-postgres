@@ -1,0 +1,25 @@
+---
+galaxy_info:
+  author: mongkok
+  company: ansyble
+  description: Postgres cluster
+  min_ansible_version: 2.0
+  license: MIT
+  platforms:
+  - name: EL
+    versions:
+    - 6
+    - 7
+  - name: Ubuntu
+    versions:
+    - all
+  - name: Debian
+    versions:
+    - all
+  galaxy_tags:
+  - postgres
+  - cluster
+  - postgis
+  - replication
+  - snapshot
+  - backups

@@ -1,0 +1,16 @@
+---
+- name: config | create docker network
+  docker_network:
+    name: "{{ postgres_network_name }}"
+
+- name: config | run container set
+  docker_container:
+    name: "{{ item.name }}"
+    image: "{{ postgres_image_name }}"
+    volumes: "{{ item.volumes | default([]) }}"    
+    ports: "{{ item.ports | default([]) }}"
+    restart_policy: always
+    env: "{{ item.env }}"
+    networks:
+      - name: postgres
+  with_items: "{{ postgres_databases }}"
