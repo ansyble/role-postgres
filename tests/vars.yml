@@ -3,6 +3,8 @@ postgres_container:
   - name: pg.master
     volumes:
       - pg.master:/var/lib/postgresql/data
+    networks:
+      - postgres
     env:
       POSTGRES_PASSWORD: pgpass
       DB_NAME: mydb

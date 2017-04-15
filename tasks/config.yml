@@ -1,7 +1,11 @@
 ---
 - name: config | create docker network
   docker_network:
-    name: "{{ postgres_network_name }}"
+    name: "{{ item.1.name }}"
+  with_subelements:
+    - "{{ postgres_databases }}"
+    - networks
+    - skip_missing: yes
 
 - name: config | run container set
   docker_container:
@@ -11,6 +15,5 @@
     ports: "{{ item.ports | default([]) }}"
     restart_policy: always
     env: "{{ item.env }}"
-    networks:
-      - name: postgres
+    networks: "{{ item.networks|default([]) }}"
   with_items: "{{ postgres_databases }}"
