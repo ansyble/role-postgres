@@ -3,7 +3,7 @@
 [![Build Status](https://travis-ci.org/ansyble/role-postgres.svg?branch=master)](https://travis-ci.org/ansyble/role-postgres)
 [![Ansible Role](https://img.shields.io/ansible/role/17044.svg)](https://galaxy.ansible.com/ansyble/postgres/)
 
-[Ansible](http://www.ansible.com) role to deploy a Postgres cluster.
+[Ansible](http://www.ansible.com) role to deploy Postgres cluster.
 
 ### Install
 
@@ -20,11 +20,13 @@ postgres_databases:
       - pg.master:/var/lib/postgresql/data
     ports:
       - 5442:5432
+    networks:
+      - postgres
     env:
-      POSTGRES_PASSWORD: "{{ postgres_pass }}"
+      POSTGRES_PASSWORD: pgpass
       DB_NAME: mydb
       DB_USER: me
-      DB_PASSWORD: "{{ postgres_db_pass }}"
+      DB_PASSWORD: "{{ postgres_mydb_pass }}"
       REPLICATION_USER: replica
       REPLICATION_PASS: "{{ postgres_replica_pass }}"
 
