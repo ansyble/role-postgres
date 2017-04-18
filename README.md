@@ -21,7 +21,7 @@ postgres_databases:
     ports:
       - 5442:5432
     networks:
-      - postgres
+      - name: postgres
     env:
       POSTGRES_PASSWORD: pgpass
       DB_NAME: mydb
