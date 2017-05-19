@@ -24,9 +24,9 @@ postgres_databases:
       - name: postgres
     env:
       POSTGRES_PASSWORD: pgpass
-      DB_NAME: mydb
-      DB_USER: me
-      DB_PASSWORD: "{{ postgres_mydb_pass }}"
+      POSTGRES_DB_NAME: mydb
+      POSTGRES_DB_USER: me
+      POSTGRES_DB_PASSWORD: "{{ postgres_mydb_pass }}"
       REPLICATION_USER: replica
       REPLICATION_PASS: "{{ postgres_replica_pass }}"
 
